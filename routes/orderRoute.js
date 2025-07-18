@@ -1,15 +1,20 @@
+// routes/orderRoutes.js
 import express from "express";
-import { authenticate, authorize } from "../middlewares/auth.js";
 import {
   newOrder,
   showOrders,
-  showAllOrders,updateOrder
+  showAllOrders,
+  updateOrder,
 } from "../controllers/orderController.js";
-const Router = express.Router();
 
-Router.post("/", newOrder);
-Router.get("/", authenticate, authorize("admin"), showAllOrders);
-Router.patch("/:id", updateOrder);
-Router.get("/:id", showOrders);
+const router = express.Router();
 
-export default Router;
+router.post("/", newOrder);
+
+router.get("/user/:id", showOrders);
+
+router.get("/all", showAllOrders);
+
+router.patch("/:id", updateOrder);
+
+export default router;
