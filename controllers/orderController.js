@@ -48,7 +48,7 @@ const showAllOrders = async (req, res) => {
       orderValue: order.orderValue,
       createdAt: order.createdAt,
       shippingName: order.shippingDetails?.name || "N/A",
-      shippingAddress: `${order.shippingDetails?.address || ""}, ${order.shippingDetails?.city || ""}, ${order.shippingDetails?.state || ""}`,
+      shippingAddress: `${order.shippingDetails?.address || ""}, ${order.shippingDetails?.city || ""},${order.shippingDetails?.pincode||""}, ${order.shippingDetails?.state || ""}`,
       items: order.items,
     }));
 
